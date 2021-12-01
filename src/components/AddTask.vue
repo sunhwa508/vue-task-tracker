@@ -21,7 +21,7 @@
   </form>
 </template>
 
-<script lang="ts">
+<script>
 export default {
   name: "AddTask",
   data() {
@@ -32,14 +32,14 @@ export default {
     };
   },
   methods: {
-    onSubmit(e: Event): void {
+    onSubmit(e) {
       e.preventDefault();
       if (!this.text) {
         alert("Please add a task");
         return;
       }
-      const newTask: import("@/App.vue").ITasks = {
-        id: String(Math.floor(Math.random() * 100000)),
+      const newTask = {
+        // id: String(Math.floor(Math.random() * 100000)),
         text: this.text,
         day: this.day,
         reminder: this.reminder,
