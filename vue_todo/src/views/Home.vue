@@ -20,7 +20,7 @@ export default {
     showAddTask: Boolean,
   },
   components: { Tasks, AddTask },
-  data() {
+  data(): { tasks: ITasks[] } {
     return {
       tasks: [] as ITasks[],
     };
