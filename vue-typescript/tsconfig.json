@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "strict": false,
-    "noImplicitAny": false,
+    "strict": true,
+    "noImplicitAny": true,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
@@ -32,8 +32,10 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
-, "src/api/instance/intercepter.js"  ],
+    "tests/**/*.tsx",
+    "src/types/**/*.d.ts", 
+    "src/api/instance/intercepter.js"
+  ],
   "exclude": [
     "node_modules"
   ]
