@@ -8,6 +8,7 @@ interface ICreateListView {
   mounted(): void;
   render(h: CreateElement): VNode;
 }
+
 export default function createListView(name: string): ICreateListView {
   return {
     name,

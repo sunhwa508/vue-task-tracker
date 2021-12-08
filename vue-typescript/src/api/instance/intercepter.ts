@@ -1,13 +1,13 @@
 import store from "../../store";
 
-function setRequestOptions(instance) {
+function setRequestOptions(instance: any): void {
   instance.interceptors.request.use(
-    (config) => {
+    (config: any) => {
       const token = store.getters["auth/token"];
       config.headers.Authorization = token;
       return config;
     },
-    (error) => {
+    (error: any) => {
       const token = error.response.headers.authorization;
       store.commit("SET_TOKEN", token);
       return Promise.reject(error.response);
@@ -15,17 +15,17 @@ function setRequestOptions(instance) {
   );
 }
 
-function setResponseOptions(instance) {
+function setResponseOptions(instance: any): void {
   instance.interceptors.response.use(
-    (config) => {
+    (config: any) => {
       const token = config.headers.authorization;
       store.commit("SET_TOKEN", token);
       return config;
     },
-    (error) => {
+    (error: any) => {
       const token = error.response.headers.authorization;
       store.commit("SET_TOKEN", token);
-      return Promise.rejåect(error.response);
+      return Promise.reject(error.response);
     }
   );
 }

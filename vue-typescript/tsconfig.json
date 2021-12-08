@@ -34,7 +34,7 @@
     "tests/**/*.ts",
     "tests/**/*.tsx",
     "src/types/**/*.d.ts", 
-    "src/api/instance/intercepter.js"
+    "src/api/instance/intercepter.ts"
   ],
   "exclude": [
     "node_modules"
