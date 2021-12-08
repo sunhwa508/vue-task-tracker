@@ -1,6 +1,5 @@
 import Vue from "vue";
-import Vuex, { Store, StoreOptions } from "vuex";
-import getters from "./getters";
+import Vuex, { StoreOptions } from "vuex";
 import { mutations } from "./mutations";
 import { actions } from "./actions";
 import { RootState, state } from "./state";
@@ -14,18 +13,3 @@ const store: StoreOptions<RootState> = {
 };
 
 export default new Vuex.Store(store);
-
-// export default new Vuex.Store({
-//   strict: process.env.NODE_ENV !== "production",
-//   state: {
-//     news: [],
-//     ask: [],
-//     jobs: [],
-//     user: {},
-//     item: {},
-//     list: [],
-//   },
-//   getters,
-//   mutations,
-//   actions,
-// });
