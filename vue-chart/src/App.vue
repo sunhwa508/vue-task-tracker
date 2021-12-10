@@ -6,8 +6,22 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Chart from "chart.js";
+// import Chart from "chart.js";
+import Chart, { ChartTypeRegistry } from "chart.js/auto";
 
+interface IConfig {
+  type: keyof ChartTypeRegistry;
+  data: {
+    labels: string[];
+    datasets: {
+      label: string;
+      backgroundColor: string;
+      borderColor: string;
+      data: number[];
+    }[];
+  };
+  options: Record<string, unknown>;
+}
 export default Vue.extend({
   mounted() {
     const labels = ["January", "February", "March", "April", "May", "June"];
@@ -22,12 +36,15 @@ export default Vue.extend({
         },
       ],
     };
-    const config = {
+    const config: IConfig = {
       type: "line",
       data: data,
       options: {},
     };
-    const myChart = new Chart(document.getElementById("myChart"), config);
+    const myChart = new Chart(
+      document.getElementById("myChart") as HTMLCanvasElement,
+      config
+    );
   },
 });
 </script>
